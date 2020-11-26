@@ -26,14 +26,6 @@ export class OperationService {
     this.store.dispatch(new AddSignAction(sign));
   }
 
-  updateOperation(operation: IOperation){
-    this.store.dispatch(new UpdateOperationAction(operation));
-  }
-
-  deleteOperation(id: number){
-    this.store.dispatch(new DeleteOperationAction(id));
-  }
-
   getCurrentOperation(){
     return this.store.select(OperationState.getOperation);
   }

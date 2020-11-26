@@ -43,7 +43,7 @@ export class AddSignAction {
         prevOperations: [],
         selectedOperationId: null,
         operation: {
-            id: null,
+            id: 1,
             operations: [],
             numbers: []
         }
@@ -75,7 +75,7 @@ export class OperationState{
     add(state: StateContext<IROperation>, action: AddOperationAction) {
         state.setState({
             prevOperations: [...state.getState().prevOperations, action.operation],
-            operation: {id: null, operations: [], numbers: []},
+            operation: {id: state.getState().operation.id + 1, operations: [], numbers: []},
             selectedOperationId: action.operation.id 
         });
     }
@@ -103,27 +103,6 @@ export class OperationState{
                 numbers: state.getState().operation.numbers
             },
             selectedOperationId: state.getState().operation.id 
-        });
-    }
-
-    @Action(UpdateOperationAction)
-    update(state: StateContext<IROperation>, action: UpdateOperationAction) {
-        state.setState({
-            operation: {...action.operation},
-            selectedOperationId: action.operation.id,
-            prevOperations: state.getState().prevOperations
-        });
-    }
-
-    @Action(DeleteOperationAction)
-    delete(state: StateContext<IROperation>, action: DeleteOperationAction) {
-        const newState = {...state.getState()};
-        var opIndex = newState.prevOperations.findIndex((operation) => operation.id === action.id);
-        newState.prevOperations.splice(opIndex);
-        state.setState({
-            prevOperations: newState.prevOperations,
-            operation: newState.operation,
-            selectedOperationId: action.id
         });
     }
 }

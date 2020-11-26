@@ -36,7 +36,7 @@ export class CalculatorComponent implements OnInit {
 
   onPressedNumber(num: string){
     this.number = this.number.concat(num);
-    this.current = this.finished ? num : this.current + (num);
+    this.current = this.finished ? num : this.current.toString() + num.toString();
     this.finished = false;
   }
 
