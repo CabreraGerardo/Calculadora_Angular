@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-12 text-center result">
+        <h2>Operación: {{current}}</h2>
+    </div>
+</div>
+
+<div class="row numpad">
+    <app-button 
+        class="col-4" 
+        *ngFor="let button of buttons" 
+        [content]="button"
+        (buttonClicked)="onPressedNumber($event)"
+    >
+    </app-button>
+</div>
+
+<div class="row signs">
+    <div class="col-3">
+        <button class="btn btn-block btn-info" (click)="onPressedOperation('+')">+</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-block btn-info" (click)="onPressedOperation('-')">-</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-block btn-info" (click)="onPressedOperation('*')">*</button>
+    </div>    
+    <div class="col-3">
+        <button class="btn btn-block btn-info" (click)="onPressedOperation('/')">/</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-block btn-info" (click)="calculate()">=</button>
+    </div>
+</div>
+
+<div class="mt-5">
+    <ul>
+        <li *ngFor="let op of prevOp">
+            {{formatOp(op)}}
+        </li>
+    </ul>
+</div>

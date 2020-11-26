@@ -1,0 +1,19 @@
+.result{
+    border: 1px solid grey;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.numpad{
+    border: 1px solid grey;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    padding: 16px;
+}
+
+.signs{
+    border: 1px solid grey;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    padding: 16px;
+}
